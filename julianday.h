@@ -1,0 +1,10 @@
+extern int computeJD(int D, int M, int Y);
+extern int JDnow();
+extern int last_day(int date);
+extern int first_day(int date);
+extern int add_months(int date, int months /*1 или -1*/);
+extern void computeYMD(int JD, int *day, int *month, int *year);
+extern void JD2str(int JD, char* str);
+extern void JD2full_str(int JD, char* str, int buflen);
+extern int str2JD(const char* str);
+extern int get_days_in_year(int date);

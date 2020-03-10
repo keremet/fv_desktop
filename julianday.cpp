@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
+#include <algorithm>
 
 int computeJD(int D, int M, int Y){
 	if( M<=2 ){
@@ -81,7 +82,7 @@ int add_months(int date, int months /*1 или -1*/){
 		month+=12;
 		year--;
 	}
-	return computeJD(day<?daysInMonth(month, year), month, year);
+	return computeJD(std::min(day, daysInMonth(month, year)), month, year);
 }
 
 

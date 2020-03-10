@@ -14,6 +14,10 @@ ifeq ($(OSTYPE), SunOS)
 export LDFLAGS += `pkg-config gtk+-2.0 libglade-2.0 --libs` 
 endif
 
+ifeq ($(OSTYPE), Linux)
+export LDFLAGS += `pkg-config gtk+-2.0 libglade-2.0 --libs` 
+endif
+
 ifeq ($(OSTYPE), MINGW32_NT-5.1)
 LDFLAGS += -Wl,--subsystem,windows -L/z/readyLK -L/usr/local/lib /z/libglade-2.6.3/glade/.libs/libglade-2.0.a -lxml2 `pkg-config gtk+-2.0 --libs`
 endif
@@ -52,7 +56,7 @@ MainWindow.o: MainWindow.cpp MainWindow.h AgrWindow.h db.h financial.h PaymentPr
 	g++ -c MainWindow.cpp -o$@ $(CXXFLAGS)
 	
 AgrWindow.o: AgrWindow.cpp AgrWindow.h db.h base.h PaymentProcessing.h financial.h
-	g++ -c AgrWindow.cpp -o$@ $(CXXFLAGS)
+	g++ -c AgrWindow.cpp -o$@ -fpermissive $(CXXFLAGS)
 	
 base.o: base.cpp base.h
 	g++ -c base.cpp -o$@ $(CXXFLAGS)

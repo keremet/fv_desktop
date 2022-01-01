@@ -60,11 +60,11 @@ class AgrWindow: public Base{
 	financial sum_plat_pr;
 	
 	static int callback_orv_member(void* mw, int id, PARAMS_orv_member);
-	static int callback_fv_sozaem(void* param, int id, PARAMS_fv_sozaem);
-	static int callback_fv_schedules(void* param, int id, int start_date, int reason_id, financial oper_sum, const char* comment);
-	static int callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate);
+	static void callback_fv_sozaem(void* param, int id, PARAMS_fv_sozaem);
+	static void callback_fv_schedules(void* param, int id, int start_date, int reason_id, financial oper_sum, const char* comment);
+	static void callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate);
 	static int callback_fv_schedule_state(void* param, int id, PARAMS_fv_schedule_state);
-	static int callback_select_fv_schedule_and_payment_states (void* param, 
+	static void callback_select_fv_schedule_and_payment_states (void* param, 
 		int state_date, int state_kind, financial remainder_sched, financial interest_sched, financial payment_sched, 
 		financial payment_all, financial remainder_overdue, financial interest_overdue, financial payment_overdue, const char* comment, int payment_id);
 	static void tvSchedule_selection_changed(GtkTreeSelection *selection, AgrWindow *aw);

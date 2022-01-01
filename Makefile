@@ -30,7 +30,7 @@ endif
 SQLITE = sqlite-amalgamation-3071602/sqlite3
 
 all:	$(APP) $(SQLITE)
-	
+
 $(APP):odflib/libzip-0.10.1_bin/lib/libzip.a $(objects) 
 	g++ -o$@ $(objects) $(LDFLAGS) odflib/libzip-0.10.1_bin/lib/libzip.a -lz
 
@@ -54,16 +54,16 @@ interface.o: interface.cpp MainWindow.h db.h financial.h
 
 MainWindow.o: MainWindow.cpp MainWindow.h AgrWindow.h db.h financial.h PaymentProcessing.h base.h
 	g++ -c MainWindow.cpp -o$@ $(CXXFLAGS)
-	
+
 AgrWindow.o: AgrWindow.cpp AgrWindow.h db.h base.h PaymentProcessing.h financial.h
 	g++ -c AgrWindow.cpp -o$@ -fpermissive $(CXXFLAGS)
-	
+
 base.o: base.cpp base.h
 	g++ -c base.cpp -o$@ $(CXXFLAGS)
 
 db.o: db.cpp db.h financial.h
 	g++ -c db.cpp -o$@ $(CXXFLAGS)
-	
+
 MembersWindow.o: MembersWindow.cpp MembersWindow.h	db.h financial.h base.h
 	g++ -c MembersWindow.cpp -o$@ $(CXXFLAGS)
 
@@ -78,12 +78,12 @@ financial.o: financial.cpp 	financial.h
 
 sqlite-amalgamation-3071602/sqlite3.o: sqlite-amalgamation-3071602/sqlite3.c
 	gcc -c -O3 sqlite-amalgamation-3071602/sqlite3.c -o$@ -DSQLITE_THREADSAFE=0 -DOMIT_ALTERTABLE -DSQLITE_OMIT_EXPLAIN -DOMIT_LIKE_OPTIMIZATION -DSQLITE_OMIT_TRUNCATE_OPTIMIZATION -DSQLITE_OMIT_DEPRECATED -DSQLITE_OMIT_DATETIME_FUNCS -DSQLITE_OMIT_LOCALTIME -DSQLITE_OMIT_COMPILEOPTION_DIAGS -DSQLITE_OMIT_TEMPDB -DSQLITE_OMIT_LOAD_EXTENSION -DSQLITE_OMIT_AUTHORIZATION -DSQLITE_OMIT_PROGRESS_CALLBACK  -DSQLITE_OMIT_EXPLAIN -DSQLITE_OMIT_MEMORYDB
-	
+
 #-DSQLITE_OMIT_VIRTUALTABLE -DSQLITE_OMIT_VIEW	
 
 clean:
 	rm -f $(APP) $(objects) $(SQLITE) core *~
 	cd odflib && (make clean)
-	
+
 run: all
 	./$(APP)

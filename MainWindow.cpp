@@ -10,7 +10,7 @@
 const char* MainWindow::main_headers[]={"Номер","Дата подписания","ID Займодавца" /*Не отображается*/,"Займодавец","Пользователи","Поручители","Выдано","Долг на сегодня","Запланированная дата окончания","Дата закрытия"};
 
 
-int MainWindow::callback_fv_agr(void* mw, int id, PARAMS_fv_agr_select){
+void MainWindow::callback_fv_agr(void* mw, int id, PARAMS_fv_agr_select){
   MainWindow *mainW = (MainWindow *)mw;
   GtkListStore *store = (GtkListStore *)(mainW->main_model);
   GtkTreeIter iter;

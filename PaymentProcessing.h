@@ -14,7 +14,7 @@ class PaymentProcessing{
 	financial getInterestBase(financial rem, int dateB, int dateE, std::string *s, int type);
 	std::string createAnnScheduleBase(int schedule_id, financial sum, financial v_ann_plat, int dateB, int dateE, bool first_month_pay);
 	std::string create1PaymentSchedule(int schedule_id, financial sum, int dateB, int dateE);
-	static int callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate);
+	static void callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate);
 	static int callback_fv_schedule_state(void* param, int id, PARAMS_fv_schedule_state);
 	std::string loadStatesFromCSV(int schedule_id, const char* fn);		
 public:

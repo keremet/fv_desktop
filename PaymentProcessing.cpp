@@ -457,7 +457,7 @@ string PaymentProcessing::createPayment(financial sum, int date, const char* com
 	return "";
 }
 
-int PaymentProcessing::callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate){
+void PaymentProcessing::callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate){
 	PaymentProcessing* s = (PaymentProcessing*)param;		
 	g_array_append_val (s->ga4date[type-1], id);
 	g_array_append_val (s->ga4value[type-1], value);	

@@ -548,12 +548,12 @@ for(int i_type=1;i_type<=2;i_type++)
 }
 
 
-int AgrWindow::callback_fv_sozaem(void* param, int id, PARAMS_fv_sozaem){
+void AgrWindow::callback_fv_sozaem(void* param, int id, PARAMS_fv_sozaem){
 	AgrWindow* aw = (AgrWindow*)param;
 	aw->addSoz(id, type_id);
 }
 
-int AgrWindow::callback_fv_schedules(void* param, int id, int start_date, int reason_id, financial oper_sum, const char* comment){
+void AgrWindow::callback_fv_schedules(void* param, int id, int start_date, int reason_id, financial oper_sum, const char* comment){
 	GtkListStore *store = (GtkListStore *)param;
 	GtkTreeIter iter;
     gtk_list_store_append (store, &iter);
@@ -946,7 +946,7 @@ void AgrWindow::tvSchedule_state_selection_changed (GtkTreeSelection *selection,
 	}	
 }
 
-int AgrWindow::callback_select_fv_schedule_and_payment_states (void* param, 
+void AgrWindow::callback_select_fv_schedule_and_payment_states (void* param, 
 		int state_date, int state_kind, financial remainder_sched, financial interest_sched, financial payment_sched,
 		financial payment_all, financial remainder_overdue, financial interest_overdue, financial payment_overdue, const char* comment, int payment_id){
 	AgrWindow* aw = (AgrWindow *)param;
@@ -1047,7 +1047,7 @@ int AgrWindow::callback_orv_member(void* _store, int id, PARAMS_orv_member){
 }
 
 
-int AgrWindow::callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate){
+void AgrWindow::callback_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate){
 	AgrWindow* aw = (AgrWindow*)param;
 	GObject* mainCalendar = G_OBJECT (aw->addRate(id, value, type, true));
 	if((type==1)&&(aw->calStartDate[2]==0)){

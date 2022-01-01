@@ -24,7 +24,7 @@ class MainWindow: public Base{
 	GtkWidget* tvAgrList;
 	
 	static const char* main_headers[];
-	static int callback_fv_agr(void* mw, int id, PARAMS_fv_agr_select);
+	static void callback_fv_agr(void* mw, int id, PARAMS_fv_agr_select);
 	static void bCreateClicked(GtkButton *button, MainWindow *mw);
 	static void bCreateStandardClicked(GtkButton *button, MainWindow *mw);
 	static void bDeleteClicked(GtkButton *button, MainWindow *mw);

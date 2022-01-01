@@ -55,7 +55,7 @@ static void fillProcField(ODTContentEditor *editor, vector<SRate> *vr, string fi
 	editor->replaceField(fieldName, sProc.c_str());	
 }
 
-static int cb_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate){
+static void cb_fv_rate(void* param, PARAMS_ID_fv_rate, PARAMS_fv_rate){
 	SRates *rates = (SRates*)param;
 	SRate r;
 	r.rate = value;
@@ -111,7 +111,7 @@ int agr2odt(int agr_id, DB* db){
 	char ssum[500];
 	try
     {
-		snprintf(ssum, sizeof(ssum),"%i", sum);
+		snprintf(ssum, sizeof(ssum),"%lli", sum);
 		std::string s = string_functions::number_in_words(ssum);
 		snprintf(ssum, sizeof(ssum),"%i (%s)", (int)sum, s.c_str());
     }

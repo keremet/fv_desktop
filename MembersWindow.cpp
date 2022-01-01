@@ -32,7 +32,7 @@ int getJDfromCalendar(GtkCalendar *calendar){
 	return computeJD(day, month+1, year);	
 }
 
-int setJDinCalendar(GtkCalendar *calendar, int date){
+void setJDinCalendar(GtkCalendar *calendar, int date){
 	int year, month, day;
 	computeYMD(date, &day, &month, &year);
 	gtk_calendar_select_month (calendar, month-1, year);
